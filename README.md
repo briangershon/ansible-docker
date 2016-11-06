@@ -1,14 +1,18 @@
+# About
+
 Run Ansible via Docker.
 
-## How to build
+## Give it a try
 
-    docker build -t ansible-docker:latest .
+    docker run -it --rm brianfive/ansible-docker ansible --version
+    docker run -v `pwd`/example:`pwd` -w `pwd` -it --rm brianfive/ansible-docker ansible-playbook example.yml
 
-## Examples
+## How to build docker image
 
-    docker run -it --rm ansible-docker:latest ansible --version
-
-    docker run -v `pwd`/example:`pwd` -w `pwd` -it --rm ansible-docker:latest ansible-playbook example.yml
+    docker build -t ansible-docker .
+    docker images
+    docker tag <image-hash-goes-here> brianfive/ansible-docker:latest
+    docker push brianfive/ansible-docker
 
 ## References
 

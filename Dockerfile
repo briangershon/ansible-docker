@@ -60,4 +60,4 @@ RUN echo \
 
 # since we will be "always" mounting the volume, we can set this up
 ENTRYPOINT ["/usr/bin/dumb-init"]
-CMD ["python"]
+CMD ["ansible-playbook"]
