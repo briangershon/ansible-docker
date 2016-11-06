@@ -22,6 +22,8 @@ ENV PACKAGES="\
   python2 \
   python2-dev \
   py-setuptools \
+  libffi-dev \
+  openssl-dev \
 "
 
 RUN echo \
@@ -49,6 +51,11 @@ RUN echo \
   && easy_install pip \
   && pip install --upgrade pip \
   && if [[ ! -e /usr/bin/pip ]]; then ln -sf /usr/bin/pip2.7 /usr/bin/pip; fi \
+
+  # Install Ansible
+  && pip install ansible \
+
+  # Done
   && echo
 
 # since we will be "always" mounting the volume, we can set this up
